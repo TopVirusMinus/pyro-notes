@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import {Note} from './components/Note/Note';
+import addImg from './assets/plus.png';
 
 function App() {
+  function handleClick(x,y){
+      console.log(x,y);
+  }
+  let notes = []
+  function createNewNote(){
+      notes.push(<Note/>);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" onClick={(e)=>handleClick(e.pageX, e.pageY)}>
+      <div className='add-new-note' onClick={createNewNote}>
+        <img src={addImg} alt="add note" className="add-img"/>
+        <p>New Note</p>
+      </div>
+      <div className='Notes'>
+        <Note/>
+      </div>
     </div>
   );
 }
