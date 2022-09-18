@@ -1,12 +1,14 @@
-*,*::after,*::before{
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: monospace;
 }
 
-body{
- /* background-color: #313552;*/
+body {
+  /* background-color: #313552;*/
   background: -webkit-linear-gradient(#313552, #393d5e);
   background-size: cover;
   background-attachment: fixed;
@@ -14,26 +16,26 @@ body{
 
 ::selection {
   display: inline;
-  padding: .25em 0;
-  background-color:#016F26; 
-  color: #eee; 
-  box-shadow: .5em 0 0 #FFC107, -.5em 0 0 #FFC107;
+  padding: 0.25em 0;
+  background-color: #016f26;
+  color: #eee;
+  box-shadow: 0.5em 0 0 #ffc107, -0.5em 0 0 #ffc107;
 }
 
 ::-webkit-scrollbar,
 ::-webkit-scrollbar {
-	width: 12px;
-	background-color: #F5F5F5;
+  width: 12px;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #333;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #333;
 }
 
 ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #212020;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #212020;
 }

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *::after,
 *::before {
@@ -9,16 +13,14 @@
 .note {
   background-color: #333;
   color: #eee;
-  width: 30%;
-  padding: 3%;
+  width: 400px;
+  padding: 5rem;
   background: -webkit-linear-gradient(#333, rgb(59, 59, 59));
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: auto;
   resize: none;
-  position: relative;
-  left: 50;
+  position: absolute;
   border-radius: 20px;
-  margin-top: 3%;
   cursor: move;
 }
 
@@ -29,13 +31,14 @@ textarea {
   width: 100%;
   resize: vertical;
   overflow: auto;
-  margin-bottom: 4%;
+  margin-bottom: 1.2rem;
   cursor: mouse;
 }
 
 .title {
   color: #2eb086;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .title::placeholder {
@@ -44,6 +47,7 @@ textarea {
 
 .content {
   color: #eee6ce;
+  font-size: 1.2em;
 }
 
 .deleteImg {

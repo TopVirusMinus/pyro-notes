@@ -1,27 +1,20 @@
-import { useState } from "react";
+import { useState, useRef, useCallback, useMemo } from "react";
 import "./App.css";
 import { Note } from "./components/Note/Note";
+import Canvas from "./components/Canvas/Canvas";
 import addImg from "./assets/plus.png";
 
 function App() {
   function handleClick(x, y) {
     console.log(x, y);
   }
-  let notes = [];
-  function createNewNote() {
-    notes.push(<Note />);
-  }
 
   return (
-    <div className="App" onClick={(e) => handleClick(e.pageX, e.pageY)}>
-      <div className="add-new-note">
-        <img src={addImg} alt="add note" className="add-img" />
-        <p>New Note</p>
+    <>
+      <div className="App">
+        <Canvas />
       </div>
-      <div className="Notes">
-        <Note />
-      </div>
-    </div>
+    </>
   );
 }
 
