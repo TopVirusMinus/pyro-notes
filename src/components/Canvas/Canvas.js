@@ -36,7 +36,7 @@ const Canvas = () => {
           backgroundColor: "transparent",
         }}
       >
-        Double Click To Add Add New Note
+        Double Click To Add A New Note
       </h1>
       <Notes />
     </div>

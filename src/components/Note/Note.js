@@ -18,6 +18,9 @@ const Note = ({ id, title, content }) => {
   const handleContentChange = (e) => {
     dispatch(setContent({ id, content: e.target.value }));
   };
+  const handleDelete = (e) => {
+    dispatch(deleteNote({ id }));
+  };
 
   return (
     <Draggable key={id} disabled={disableDrag} bounds="parent">
@@ -25,14 +28,14 @@ const Note = ({ id, title, content }) => {
         className={`${CSS.note}`}
         onMouseOver={(e) => {
           const cursorStyle = window.getComputedStyle(e.target)["cursor"];
-          setDisableDrag(
+          setDisableDrag( 
             (prev) => cursorStyle === "text" || cursorStyle === "pointer"
           );
         }}
       >
         <img
           className={CSS.deleteImg}
-          onClick={() => dispatch(deleteNote(id))}
+          onClick={(e) => handleDelete(e)}
           src={deleteImg}
           alt="delete"
         />

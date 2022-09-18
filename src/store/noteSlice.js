@@ -19,7 +19,9 @@ const noteSlice = createSlice({
     createNote: (state, action) => {
       state.notes[action.payload.id] = action.payload;
     },
-    deleteNote: (state, action) => {},
+    deleteNote: (state, action) => {
+      delete state.notes[action.payload.id];
+    },
   },
 });
 
