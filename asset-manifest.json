@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TopVirusMinus/pyro-notes/static/css/main.b27072df.css",
-    "main.js": "/TopVirusMinus/pyro-notes/static/js/main.9fa3aa83.js",
-    "static/media/plus.png": "/TopVirusMinus/pyro-notes/static/media/plus.a0162b51b27dcf0fdaf5.png",
-    "static/media/close.png": "/TopVirusMinus/pyro-notes/static/media/close.2fce6214b7c60c745aa6.png",
-    "index.html": "/TopVirusMinus/pyro-notes/index.html",
-    "main.b27072df.css.map": "/TopVirusMinus/pyro-notes/static/css/main.b27072df.css.map",
-    "main.9fa3aa83.js.map": "/TopVirusMinus/pyro-notes/static/js/main.9fa3aa83.js.map"
+    "main.css": "./static/css/main.a94aaccc.css",
+    "main.js": "./static/js/main.b9191318.js",
+    "static/media/plus.png": "./static/media/plus.a0162b51b27dcf0fdaf5.png",
+    "static/media/close.png": "./static/media/close.2fce6214b7c60c745aa6.png",
+    "index.html": "./index.html",
+    "main.a94aaccc.css.map": "./static/css/main.a94aaccc.css.map",
+    "main.b9191318.js.map": "./static/js/main.b9191318.js.map"
   },
   "entrypoints": [
-    "static/css/main.b27072df.css",
-    "static/js/main.9fa3aa83.js"
+    "static/css/main.a94aaccc.css",
+    "static/js/main.b9191318.js"
   ]
 }
