@@ -21,6 +21,23 @@ const Canvas = () => {
 
   return (
     <div className="canvas" onDoubleClick={(e) => createNewNote(e)}>
+      <h1
+        onSelectStart="return false"
+        className={CSS.tutHeader}
+        style={{
+          color: "#eeeeee22",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          fontWeight: "bold",
+          fontSize: "4em",
+          pointerEvents: "none",
+          backgroundColor: "transparent",
+        }}
+      >
+        Double Click To Add Add New Note
+      </h1>
       <Notes />
     </div>
   );

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 const initialId = uuidv4();
@@ -19,8 +19,12 @@ const noteSlice = createSlice({
     createNote: (state, action) => {
       state.notes[action.payload.id] = action.payload;
     },
+    deleteNote: (state, action) => {
+      state.notes = [state.notes].filter((n) => n.id !== action.payload.id);
+    },
   },
 });
 
-export const { setTitle, setContent, createNote } = noteSlice.actions;
+export const { setTitle, setContent, createNote, deleteNote } =
+  noteSlice.actions;
 export default noteSlice.reducer;

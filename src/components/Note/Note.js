@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import TextareaAutosize from "react-autosize-textarea";
 import deleteImg from "../../assets/close.png";
 import CSS from "./Note.module.css";
-import { setTitle, setContent } from "../../store/noteSlice";
+import { setTitle, setContent, deleteNote } from "../../store/noteSlice";
 import { useDispatch } from "react-redux";
 const Note = ({ id, title, content }) => {
   const dispatch = useDispatch();
@@ -24,11 +24,18 @@ const Note = ({ id, title, content }) => {
       <div
         className={`${CSS.note}`}
         onMouseOver={(e) => {
-          const computed = window.getComputedStyle(e.target)["cursor"];
-          setDisableDrag((prev) => computed === "text");
+          const cursorStyle = window.getComputedStyle(e.target)["cursor"];
+          setDisableDrag(
+            (prev) => cursorStyle === "text" || cursorStyle === "pointer"
+          );
         }}
       >
-        <img className={CSS.deleteImg} src={deleteImg} alt="delete" />
+        <img
+          className={CSS.deleteImg}
+          onClick={() => dispatch(deleteNote(id))}
+          src={deleteImg}
+          alt="delete"
+        />
         <TextareaAutosize
           onChange={(e) => handleTitleChange(e)}
           spellCheck="false"
