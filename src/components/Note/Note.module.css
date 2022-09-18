@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.note {
+  background-color: #333;
+  color: #eee;
+  width: 30%;
+  padding: 3%;
+  background: -webkit-linear-gradient(#333, rgb(59, 59, 59));
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: auto;
+  resize: none;
+  position: relative;
+  left: 50;
+  border-radius: 20px;
+  margin-top: 3%;
+  cursor: move;
+}
+
+textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+  resize: vertical;
+  overflow: auto;
+  margin-bottom: 4%;
+  cursor: mouse;
+}
+
+.title {
+  color: #2eb086;
+  font-size: 2rem;
+}
+
+.title::placeholder {
+  color: #8ab9aa;
+}
+
+.content {
+  color: #eee6ce;
+}
+
+.deleteImg {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

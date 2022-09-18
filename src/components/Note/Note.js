@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
-import "./Note.css";
+import React, { useState } from "react";
 import Draggable from "react-draggable";
-import TextareaAutosize from 'react-autosize-textarea';
+import TextareaAutosize from "react-autosize-textarea";
 import deleteImg from "../../assets/close.png";
-
+import CSS from "./Note.module.css";
 
 export const Note = (props) => {
-    const [disableDrag, setDisableDrag] = useState(true);
-    const [hide, setHide] = useState(false);
+  const [disableDrag, setDisableDrag] = useState(true);
 
-    function checkSender(tag){ 
-        tag === "DIV" ? setDisableDrag(false): setDisableDrag(true);
-    }
-
-    if(hide){
-        return;
-    }
-
-    return (  
-        <Draggable disabled={disableDrag} bounds="parent">
-            <div className="note" onClick={(e)=>checkSender(e.target.tagName)}>
-                <img className='deleteImg' src={deleteImg} alt="delete" onClick={()=>setHide(true)}/>
-                <TextareaAutosize spellCheck="false" placeholder='Enter a title' {...props.title}  className="title" onClick={(e)=>checkSender(e.target.tagName)}/>
-                <TextareaAutosize spellCheck="false" draggable={false} placeholder="what's on your mind?" {...props.content} className="content" onClick={(e)=>checkSender(e.target.tagName)}/>
-            </div>  
-        </Draggable>)
-}
+  return (
+    <Draggable disabled={disableDrag} bounds="parent">
+      <div
+        className={CSS.note}
+        onMouseOver={(e) => {
+          const computed = window.getComputedStyle(e.target)["cursor"];
+          setDisableDrag((prev) => computed === "text");
+        }}
+      >
+        <img className={CSS.deleteImg} src={deleteImg} alt="delete" />
+        <TextareaAutosize
+          spellCheck="false"
+          placeholder="Enter a title"
+          {...props.title}
+          className={CSS.title}
+        />
+        <TextareaAutosize
+          spellCheck="false"
+          placeholder="what's on your mind?"
+          {...props.content}
+          className={CSS.content}
+        />
+      </div>
+    </Draggable>
+  );
+};
