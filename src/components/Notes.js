@@ -19,6 +19,7 @@ const Notes = () => {
         id={n.id}
         title={n.title}
         content={n.content}
+        width={{ width: n.width }}
       />
     );
   });
