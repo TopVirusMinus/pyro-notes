@@ -13,8 +13,8 @@ const Canvas = () => {
         id: uuidv4(),
         title: "",
         content: "",
-        x: e.screenX,
-        y: e.screenY,
+        x: e.pageX,
+        y: e.pageY,
       })
     );
   }

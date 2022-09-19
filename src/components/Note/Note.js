@@ -5,7 +5,7 @@ import deleteImg from "../../assets/close.png";
 import CSS from "./Note.module.css";
 import { setTitle, setContent, deleteNote } from "../../store/noteSlice";
 import { useDispatch } from "react-redux";
-const Note = ({ id, title, content }) => {
+const Note = ({ id, title, content, pos }) => {
   const dispatch = useDispatch();
 
   const [disableDrag, setDisableDrag] = useState(true);
@@ -18,6 +18,7 @@ const Note = ({ id, title, content }) => {
   const handleContentChange = (e) => {
     dispatch(setContent({ id, content: e.target.value }));
   };
+
   const handleDelete = (e) => {
     dispatch(deleteNote({ id }));
   };
@@ -26,9 +27,10 @@ const Note = ({ id, title, content }) => {
     <Draggable key={id} disabled={disableDrag} bounds="parent">
       <div
         className={`${CSS.note}`}
+        style={{ top: pos.top, left: pos.left }}
         onMouseOver={(e) => {
           const cursorStyle = window.getComputedStyle(e.target)["cursor"];
-          setDisableDrag( 
+          setDisableDrag(
             (prev) => cursorStyle === "text" || cursorStyle === "pointer"
           );
         }}

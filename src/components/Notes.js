@@ -9,10 +9,13 @@ const Notes = () => {
   const dispatch = useDispatch();
 
   const noteComponents = Object.values(noteState.notes).map((n) => {
+    let xAxis = n.x - 100;
+    let yAxis = n.y - 80;
+
     return (
       <Note
         key={n.id}
-        style={{ top: `${n.x}px`, left: `${n.y}px` }}
+        pos={{ top: `${yAxis}px`, left: `${xAxis}px` }}
         id={n.id}
         title={n.title}
         content={n.content}
