@@ -5,9 +5,8 @@ const initialId = uuidv4();
 const noteSlice = createSlice({
   name: "note",
   initialState: {
-    notes: {
-      [initialId]: { id: initialId, title: "", content: "", x: 20, y: 20 },
-    },
+    notes: {},
+    isEmpty:true
   },
   reducers: {
     setTitle: (state, action) => {
@@ -18,9 +17,11 @@ const noteSlice = createSlice({
     },
     createNote: (state, action) => {
       state.notes[action.payload.id] = action.payload;
+      state.isEmpty = false;
     },
     deleteNote: (state, action) => {
       delete state.notes[action.payload.id];
+      Object.keys(state.notes).length === 0 ? state.isEmpty = true : state.isEmpty = false;
     },
   },
 });
