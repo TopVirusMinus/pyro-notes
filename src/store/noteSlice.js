@@ -6,7 +6,7 @@ const noteSlice = createSlice({
   name: "note",
   initialState: {
     notes: {},
-    isEmpty:true
+    isEmpty: true,
   },
   reducers: {
     setTitle: (state, action) => {
@@ -21,7 +21,9 @@ const noteSlice = createSlice({
     },
     deleteNote: (state, action) => {
       delete state.notes[action.payload.id];
-      Object.keys(state.notes).length === 0 ? state.isEmpty = true : state.isEmpty = false;
+      Object.keys(state.notes).length === 0
+        ? (state.isEmpty = true)
+        : (state.isEmpty = false);
     },
   },
 });
