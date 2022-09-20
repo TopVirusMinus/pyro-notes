@@ -3,12 +3,19 @@ import Draggable from "react-draggable";
 import TextareaAutosize from "react-autosize-textarea";
 import deleteImg from "../../assets/close.png";
 import CSS from "./Note.module.css";
-import { setTitle, setContent, deleteNote } from "../../store/noteSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  setTitle,
+  setContent,
+  deleteNote,
+  incrementZIndex,
+} from "../../store/noteSlice";
 const Note = ({ id, title, content, pos, width }) => {
   const dispatch = useDispatch();
 
   const [disableDrag, setDisableDrag] = useState(true);
+  const noteState = useSelector((state) => state.noteSlice);
 
   const handleTitleChange = (e) => {
     console.log(id);
@@ -22,12 +29,22 @@ const Note = ({ id, title, content, pos, width }) => {
   const handleDelete = (e) => {
     dispatch(deleteNote({ id }));
   };
-  console.log(width);
+
+  const handleZIndex = () => {
+    dispatch(incrementZIndex({ id }));
+  };
+
   return (
     <Draggable key={id} disabled={disableDrag} bounds="parent">
       <div
+        onClick={() => handleZIndex()}
         className={`${CSS.note}`}
-        style={{ top: pos.top, left: pos.left, width: width.width }}
+        style={{
+          top: pos.top,
+          left: pos.left,
+          width: width.width,
+          zIndex: noteState.notes[id].zIndex,
+        }}
         onMouseOver={(e) => {
           const cursorStyle = window.getComputedStyle(e.target)["cursor"];
           setDisableDrag(

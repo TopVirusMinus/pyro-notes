@@ -20,6 +20,7 @@ const Notes = () => {
         title={n.title}
         content={n.content}
         width={{ width: n.width }}
+        zIndex={n.zIndex}
       />
     );
   });

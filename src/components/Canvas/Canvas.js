@@ -19,6 +19,7 @@ const Canvas = () => {
         x: e.pageX,
         y: e.pageY,
         width: "400px",
+        zIndex: 1,
       })
     );
   }
