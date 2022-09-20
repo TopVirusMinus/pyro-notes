@@ -33,11 +33,15 @@ const Note = ({ id, title, content, pos, width }) => {
   const handleZIndex = () => {
     dispatch(incrementZIndex({ id }));
   };
+  let mouseIsDown = false;
 
   return (
     <Draggable key={id} disabled={disableDrag} bounds="parent">
       <div
-        onClick={() => handleZIndex()}
+        onClick={() => {
+          handleZIndex();
+        }}
+        onMouseUp={() => (mouseIsDown = true)}
         className={`${CSS.note}`}
         style={{
           top: pos.top,
