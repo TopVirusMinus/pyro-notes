@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
 const Canvas = () => {
-  const noteState = useSelector((state)=>state.noteSlice);
+  const noteState = useSelector((state) => state.noteSlice);
   console.log(noteState);
 
   const dispatch = useDispatch();
@@ -18,18 +18,18 @@ const Canvas = () => {
         content: "",
         x: e.pageX,
         y: e.pageY,
+        zIndex: 1,
       })
     );
   }
 
   return (
     <div className="canvas" onDoubleClick={(e) => createNewNote(e)}>
-      {noteState.isEmpty && (<h1
-        onSelectStart="return false"
-        className={CSS.tutHeader}
-      >
-        Double Click To Add A New Note
-      </h1>)}
+      {noteState.isEmpty && (
+        <h1 onSelectStart="return false" className={CSS.tutHeader}>
+          Double Click To Add A New Note
+        </h1>
+      )}
       <Notes />
     </div>
   );

@@ -11,9 +11,15 @@ const Notes = () => {
   const noteComponents = Object.values(noteState.notes).map((n) => {
     let xAxis = n.x - 100;
     let yAxis = n.y - 80;
+    let maxZIndex = 1;
 
     return (
       <Note
+        onClick={() => {
+          n.zIndex = maxZIndex + 1;
+          maxZIndex += 1;
+        }}
+        style={{ zIndex: n.zIndex }}
         key={n.id}
         pos={{ top: `${yAxis}px`, left: `${xAxis}px` }}
         id={n.id}
