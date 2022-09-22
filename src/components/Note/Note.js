@@ -53,12 +53,7 @@ const Note = ({ id, title, content, pos, width }) => {
   const longPressEvent = useLongPress(onLongPress, onClick, defaultOptions);
   // /console.log(currentColor);
   return (
-    <Draggable
-      key={id}
-      {...longPressEvent}
-      disabled={disableDrag}
-      bounds="parent"
-    >
+    <Draggable {...longPressEvent} disabled={disableDrag} bounds="parent">
       <div
         className={`${CSS.note}`}
         style={{
@@ -102,6 +97,7 @@ const Note = ({ id, title, content, pos, width }) => {
             return (
               <ColorSelector
                 id={idx}
+                key={idx}
                 backgroundColor={c.background}
                 handleClick={changeTheme}
               />

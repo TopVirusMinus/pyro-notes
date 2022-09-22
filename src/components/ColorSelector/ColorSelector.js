@@ -6,7 +6,6 @@ const ColorSelector = ({ id, backgroundColor, handleClick }) => {
   };
   return (
     <div
-      key={id}
       className={CSS.color}
       style={{ backgroundColor }}
       onClick={() => handleClickHelper()}
