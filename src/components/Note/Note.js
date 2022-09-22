@@ -31,12 +31,12 @@ const Note = ({ id, title, content, pos, width }) => {
   };
 
   const onLongPress = () => {
-    console.log("longpress is triggered");
+    //console.log("longpress is triggered");
     handleZIndex();
   };
 
   const onClick = () => {
-    console.log("click is triggered");
+    //console.log("click is triggered");
     handleZIndex();
   };
 

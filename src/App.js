@@ -6,7 +6,7 @@ import addImg from "./assets/plus.png";
 
 function App() {
   function handleClick(x, y) {
-    console.log(x, y);
+    //console.log(x, y);
   }
 
   return (

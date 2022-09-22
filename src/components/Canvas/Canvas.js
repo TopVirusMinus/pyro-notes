@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const Canvas = () => {
   const noteState = useSelector((state) => state.noteSlice);
-  console.log(noteState);
+  //console.log(noteState);
 
   const dispatch = useDispatch();
   function createNewNote(e) {
