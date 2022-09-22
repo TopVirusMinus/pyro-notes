@@ -9,7 +9,7 @@
 .note {
   background-color: #333;
   color: #eee;
-  width: 400px;
+  /* width: 400px; */
   padding: 5rem;
   background: -webkit-linear-gradient(#333, rgb(59, 59, 59));
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

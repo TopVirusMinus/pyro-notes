@@ -18,13 +18,20 @@ const Canvas = () => {
         content: "",
         x: e.pageX,
         y: e.pageY,
+        width: "400px",
         zIndex: 1,
       })
     );
   }
 
   return (
-    <div className="canvas" onDoubleClick={(e) => createNewNote(e)}>
+    <div
+      className="canvas"
+      onDoubleClick={(e) => {
+        window.getComputedStyle(e.target)["cursor"] === "auto" &&
+          createNewNote(e);
+      }}
+    >
       {noteState.isEmpty && (
         <h1 onSelectStart="return false" className={CSS.tutHeader}>
           Double Click To Add A New Note

@@ -7,6 +7,7 @@ const noteSlice = createSlice({
   initialState: {
     notes: {},
     isEmpty: true,
+    maxZIndex: 1,
   },
   reducers: {
     setTitle: (state, action) => {
@@ -25,9 +26,16 @@ const noteSlice = createSlice({
         ? (state.isEmpty = true)
         : (state.isEmpty = false);
     },
+    incrementZIndex: (state, action) => {
+      state.maxZIndex = Math.max(
+        state.maxZIndex,
+        state.notes[action.payload.id].zIndex + 1
+      );
+      state.notes[action.payload.id].zIndex = state.maxZIndex + 1;
+    },
   },
 });
 
-export const { setTitle, setContent, createNote, deleteNote } =
+export const { setTitle, setContent, createNote, deleteNote, incrementZIndex } =
   noteSlice.actions;
 export default noteSlice.reducer;
