@@ -1,6 +1,5 @@
 import Notes from "../Notes";
 import CSS from "./Canvas.module.css";
-import Note from "../Note/Note";
 import { createNote } from "../../store/noteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";

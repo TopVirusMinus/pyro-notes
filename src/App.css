@@ -17,15 +17,6 @@
   height: 20px;
 }
 
-.add-new-note {
-  color: #eee;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 140px;
-  padding: 1%;
-}
-
 .Notes {
   height: 100vh;
 }
