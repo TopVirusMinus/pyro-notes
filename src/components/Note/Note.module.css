@@ -7,12 +7,9 @@
 }
 
 .note {
-  background-color: #333;
   color: #eee;
   /* width: 400px; */
   padding: 5rem;
-  background: -webkit-linear-gradient(#333, rgb(59, 59, 59));
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: auto;
   resize: none;
   position: absolute;
@@ -34,17 +31,11 @@ textarea {
 }
 
 .title {
-  color: #2eb086;
   font-size: 2rem;
   font-weight: bold;
 }
 
-.title::placeholder {
-  color: #8ab9aa;
-}
-
 .content {
-  color: #eee6ce;
   font-size: 1.2em;
 }
 
@@ -55,7 +46,8 @@ textarea {
   top: 10px;
   right: 10px;
   cursor: pointer;
-
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -63,4 +55,14 @@ textarea {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+.colors > * {
+  display: inline-block;
+  margin-right: 0.75em;
+}
+
+.colors {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
 }

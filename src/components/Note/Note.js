@@ -7,11 +7,13 @@ import { setTitle, setContent, deleteNote } from "../../store/noteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useLongPress from "../../hooks/useLongPress";
 import { incrementZIndex } from "../../store/noteSlice";
+import ColorSelector from "../ColorSelector/ColorSelector";
 
 const Note = ({ id, title, content, pos, width }) => {
+  const noteState = useSelector((state) => state.noteSlice);
   const dispatch = useDispatch();
   const [disableDrag, setDisableDrag] = useState(true);
-  const noteState = useSelector((state) => state.noteSlice);
+  const [currentColor, setCurrentColor] = useState(noteState.colors[0]);
 
   const handleTitleChange = (e) => {
     console.log(id);
@@ -40,12 +42,16 @@ const Note = ({ id, title, content, pos, width }) => {
     handleZIndex();
   };
 
+  const changeTheme = (id) => {
+    setCurrentColor((prev) => noteState.colors[id]);
+  };
+
   const defaultOptions = {
     shouldPreventDefault: true,
     delay: 0,
   };
   const longPressEvent = useLongPress(onLongPress, onClick, defaultOptions);
-
+  // /console.log(currentColor);
   return (
     <Draggable
       key={id}
@@ -60,6 +66,7 @@ const Note = ({ id, title, content, pos, width }) => {
           left: pos.left,
           width: width.width,
           zIndex: noteState.notes[id].zIndex,
+          backgroundColor: currentColor.background,
         }}
         onMouseOver={(e) => {
           const cursorStyle = window.getComputedStyle(e.target)["cursor"];
@@ -80,6 +87,7 @@ const Note = ({ id, title, content, pos, width }) => {
           placeholder="Enter a title"
           value={title}
           className={CSS.title}
+          style={{ color: currentColor.title }}
         />
         <TextareaAutosize
           onChange={(e) => handleContentChange(e)}
@@ -87,7 +95,19 @@ const Note = ({ id, title, content, pos, width }) => {
           placeholder="what's on your mind?"
           value={content}
           className={`${CSS.content}`}
+          style={{ color: currentColor.content }}
         />
+        <div className={CSS.colors}>
+          {noteState.colors.map((c, idx) => {
+            return (
+              <ColorSelector
+                id={idx}
+                backgroundColor={c.background}
+                handleClick={changeTheme}
+              />
+            );
+          })}
+        </div>
       </div>
     </Draggable>
   );
