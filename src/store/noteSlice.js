@@ -40,7 +40,7 @@ const noteSlice = createSlice({
         state.maxZIndex,
         state.notes[action.payload.id].zIndex + 1
       );
-      state.notes[action.payload.id].zIndex = state.maxZIndex + 1;
+      state.notes[action.payload.id].zIndex = state.maxZIndex + 2;
     },
   },
 });
